@@ -21,25 +21,30 @@ export default function Form() {
     let Error = ' ';
     const validateForm = () => {
         if(FirstName[0]< 'A' || FirstName[0] > 'Z'){
-            Error = Error + `Invalid first name  `;
+            setErrorMessage("Invalid first name")
+
+            // Error = Error + `Invalid first name  `;
         }
         
         if(LastName[0]< 'A'  || LastName[0] > 'Z' ){
-            Error = Error + "Invalid last name  ";
+            setErrorMessage("Invalid last name")
+            // Error = Error + "Invalid last name  ";
             // console.warn("Invalid last name");
         }
         // if(!Password.match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])")){
             //     console.warn("Invalid password");
             // }
         if((/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])$/.test(Password))){
-            Error = Error + "Invalid password  ";
+            setErrorMessage("Invalid password")
+            // Error = Error + "Invalid password  ";
             // console.warn("Invalid password");
         }
         if(!EmailId.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ){
-            Error = Error + "Invalid email address  ";
+            setErrorMessage("Invalid email address")
+            // Error = Error + "Invalid email address  ";
             // console.warn("Invalid email address");
         }
-        setErrorMessage(Error);
+        // setErrorMessage(Error);
 
     };
 
