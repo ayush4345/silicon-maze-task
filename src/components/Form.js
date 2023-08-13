@@ -9,11 +9,42 @@ export default function Form() {
     const [errorMessage, setErrorMessage] = useState("");
 
     // give "Invalid first name" error message if first name is not valid
-    // give "Invalid last name" error message if first name is not valid
+    // give "Invalid " error message if first name is not valid
     // give "Invalid password" error message if password is not valid
     // give "Invalid email address" error message if email address is not valid
 
+
+
+    // Password should contain atleast 1 Capital letter,1 Small letter, 1 Symbol, 1 Number.
+    // First Name and Last Name should start with capital Letter
+    // Validate input of email field for valid email Id.
+    let Error = ' ';
     const validateForm = () => {
+        if(FirstName[0]< 'A' || FirstName[0] > 'Z'){
+            setErrorMessage("Invalid first name")
+
+            // Error = Error + `Invalid first name  `;
+        }
+        
+        if(LastName[0]< 'A'  || LastName[0] > 'Z' ){
+            setErrorMessage("Invalid last name")
+            // Error = Error + "Invalid last name  ";
+            // console.warn("Invalid last name");
+        }
+        // if(!Password.match("(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])")){
+            //     console.warn("Invalid password");
+            // }
+        if((/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])$/.test(Password))){
+            setErrorMessage("Invalid password")
+            // Error = Error + "Invalid password  ";
+            // console.warn("Invalid password");
+        }
+        if(!EmailId.match(/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/) ){
+            setErrorMessage("Invalid email address")
+            // Error = Error + "Invalid email address  ";
+            // console.warn("Invalid email address");
+        }
+        // setErrorMessage(Error);
 
     };
 
